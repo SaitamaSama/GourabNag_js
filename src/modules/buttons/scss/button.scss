@@ -1,0 +1,30 @@
+.button {
+  font-family: inherit;
+  font-size: 16px;
+  padding: 10px 18px;
+  background: transparent;
+  border-radius: 2px;
+  font-weight: 400;
+  color: #96A4B7;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  &.v-secondary {
+    background: #2E5BFF;
+    color: #ffffff;
+    text-transform: uppercase;
+  }
+  &.v-primary {
+    background: #33AC2E;
+    color: #ffffff;
+    font-weight: 600;
+  }
+  &.v-normal {
+    text-transform: uppercase;
+  }
+
+  &.s-large {
+    padding: 12px 22px;
+  }
+}

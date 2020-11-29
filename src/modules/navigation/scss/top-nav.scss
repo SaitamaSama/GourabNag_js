@@ -1,0 +1,57 @@
+.top-nav {
+  display: flex;
+  height: 80px;
+  padding: 0 16px;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+  .context-previous {
+    color: #96A4B7;
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    margin-right: 32px;
+    text-transform: uppercase;
+
+    .icon {
+      font-size: 22px;
+    }
+  }
+
+  .current-location {
+    display: flex;
+    align-items: center;
+
+    .logo-image {
+      margin-right: 6px;
+    }
+
+    .location {
+      padding: 6px 12px;
+      border-left: 1px solid black;
+      font-weight: 300;
+      font-size: 18px;
+    }
+  }
+
+  .filename-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    
+    .label {
+      text-transform: uppercase;
+      color: #96A4B7;
+      margin-right: 16px;
+    }
+  }
+
+  .button-group {
+    & > * {
+      margin: 0 6px;
+    }
+  }
+}

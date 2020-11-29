@@ -1,0 +1,27 @@
+.context-menu {
+  margin-left: 16px;
+
+  .header-title {
+    margin-top: 12px;
+    font-weight: 350;
+    font-size: 26px;
+  }
+
+  .primary-button-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+    
+    & > * {
+      margin: 16px 0;
+    }
+  }
+
+  .content-title {
+    margin-top: 32px;
+    text-transform: uppercase;
+    color: #B0BAC9;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+}
