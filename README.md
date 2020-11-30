@@ -5,3 +5,7 @@ Solution uses a stack of:
 3. SCSS
 
 Implements the `Upload` part of the wireframe posted.
+
+## Screenshots
+![main](screenshots/main.png)
+![menu](screenshots/menu.png)
