@@ -1,0 +1,10 @@
+.media-upload-buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  & > * {
+    flex-grow: 1;
+    margin: 0 16px;
+  }
+}

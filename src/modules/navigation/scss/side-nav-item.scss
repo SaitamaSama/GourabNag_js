@@ -6,7 +6,7 @@
   border-left: 4px solid transparent;
   padding: 12px 6px;
   width: calc(100% - 4px - 6px);
-  color: #96A4B7;
+  // color: #96A4B7;
 
   .icon {
     font-size: 28px;
@@ -16,6 +16,7 @@
   .label {
     text-decoration: none;
     text-transform: uppercase;
+    color: #8798AD;
   }
 
   &.active {

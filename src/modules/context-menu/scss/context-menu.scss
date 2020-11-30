@@ -1,5 +1,6 @@
 .context-menu {
   margin-left: 16px;
+  padding-right: 8px;
 
   .header-title {
     margin-top: 12px;
@@ -23,5 +24,25 @@
     color: #B0BAC9;
     font-size: 12px;
     letter-spacing: 0.5px;
+  }
+
+  .elements-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .crop-container {
+      display: flex;
+      flex-direction: column;
+
+      .crop-image-display {
+        width: 200%;
+        height: auto;
+        margin-top: 24px;
+      }
+      .done-btn {
+        margin-top: 12px;
+        width: 200%;
+      }
+    }
   }
 }

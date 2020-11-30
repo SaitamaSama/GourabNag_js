@@ -11,6 +11,7 @@ export const RootComponent: React.FunctionComponent<{}> = ({ }): JSX.Element => 
       <main className="main-container">
         <SideNav />
         <ContextMenu />
+        <div className="main-content" />
       </main>
     </section>
   )

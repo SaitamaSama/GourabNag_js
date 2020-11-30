@@ -5,13 +5,29 @@
 
   .adornment-icon {
     font-size: 26px;
+    &.clickable {
+      cursor: pointer;
+    }
   }
   .input-element {
     border: none;
     font-family: inherit;
+    font-weight: inherit;
     color: #010813;
     font-size: 16px;
     flex-grow: 1;
-    margin-left: 16px;
+    width: 70%;
+    outline: none;
+
+    &:disabled {
+      background: transparent;
+    }
+
+    &.icon-front {
+      margin-left: 16px;
+    }
+    &.icon-end {
+      margin-right: 16px;
+    }
   }
 }
