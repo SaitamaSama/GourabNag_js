@@ -41,6 +41,7 @@ export const ContextMenu: React.FunctionComponent<{}> = (): JSX.Element => {
   const [imageUploadState, setImageUploadState] = React.useState<boolean>(false);
   const [contentTitle, setContentTitle] = React.useState<string>("My Files");
   const [displayImageUploadState, setDisplayImageUploadState] = React.useState<boolean>(false);
+  const [displayThreeDUploadState, setDisplayThreeDUploadState] = React.useState<boolean>(false);
 
   function openImageUploader(): void {
     setDisplayImageUploadState(true);
@@ -67,23 +68,32 @@ export const ContextMenu: React.FunctionComponent<{}> = (): JSX.Element => {
     );
   }
 
+  function renderImageButtons(): React.ReactNode {
+    if (imageUploadState) return (
+      <MediaUploadButtons
+        onImage={() => openImageUploader()}
+        onVideo={() => { }}
+        on360Video={() => { }}
+      />
+    );
+    return (
+      <Button size="large" type="primary" onClick={() => setImageUploadState(true)}>
+        Upload Image, Videos, Sound
+      </Button>
+    );
+  }
+
+  function renderThreeDButtons(): React.ReactNode {
+    return <></>;
+  }
+
   return (
     <aside className="context-menu">
       <header className="header-title">
         Uploads
       </header>
       <section className="primary-button-group">
-        {imageUploadState ? (
-          <MediaUploadButtons
-            onImage={() => openImageUploader()}
-            onVideo={() => {}}
-            on360Video={() => {}}
-          />
-        ) : (
-          <Button size="large" type="primary" onClick={() => setImageUploadState(true)}>
-            Upload Image, Videos, Sound
-          </Button>
-        )}
+        {renderImageButtons()}
         <Button size="large" type="primary">
           Upload 3D Model
         </Button>
