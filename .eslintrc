@@ -19,7 +19,9 @@
         "ignoreArrayIndexes": true,
         "ignore": [ -1, 0, 1, 10 ]
       }
-    ]
+    ],
+    "react/prop-types": 0,
+    "@typescript-eslint/no-explicit-any": 0
   },
   "settings": {
     "react": {

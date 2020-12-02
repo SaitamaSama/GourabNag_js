@@ -5,7 +5,7 @@ export interface ButtonProps {
   children: React.ReactChild;
   type: "primary" | "secondary" | "alternate" | "normal";
   size?: "normal" | "large";
-  onClick?: () => any;
+  onClick?: () => never;
   className?: string;
 }
 
