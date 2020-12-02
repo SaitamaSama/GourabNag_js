@@ -1,0 +1,16 @@
+.three-d-upload-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  .section {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 2px dashed grey;
+    justify-content: space-around;
+    margin-right: 32px;
+  }
+}

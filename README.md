@@ -10,4 +10,5 @@ The search works for the files as well.
 
 ## Screenshots
 ![main](screenshots/main.png)
+![alt-state](screenshots/alt-state.png)
 ![menu](screenshots/menu.png)

@@ -1,11 +1,13 @@
+import '../scss/context-menu.scss';
+
 import * as React from 'react';
-import { Button } from '../../buttons/components/button';
-import { IconInput } from '../../input/components/icon-input';
 import { MdSearch as SearchIcon } from 'react-icons/md';
 
-import "../scss/context-menu.scss";
+import { Button } from '../../buttons/components/button';
+import { IconInput } from '../../input/components/icon-input';
 import { InteractiveElement } from './interactive-element';
 import { MediaUploadButtons } from './media-upload-buttons';
+import { ThreeDUpload } from './three-d-upload-buttons';
 
 export interface MediaFiles {
   thumbnail: string;
@@ -36,12 +38,25 @@ const mediaFiles: Array<MediaFiles> = [
   }
 ];
 
-export const ContextMenu: React.FunctionComponent<{}> = (): JSX.Element => {
+export interface ContextMenuProps {
+  displayThreeDEditPanel: () => any;
+  hideThreeDEditPanel: () => any;
+}
+
+export enum ThreeDActiveState {
+  OBJ,
+  MTL,
+  GLTF,
+  NONE
+}
+
+export const ContextMenu: React.FunctionComponent<ContextMenuProps> = (props): JSX.Element => {
   const [search, setSearch] = React.useState<string>('');
   const [imageUploadState, setImageUploadState] = React.useState<boolean>(false);
   const [contentTitle, setContentTitle] = React.useState<string>("My Files");
   const [displayImageUploadState, setDisplayImageUploadState] = React.useState<boolean>(false);
   const [displayThreeDUploadState, setDisplayThreeDUploadState] = React.useState<boolean>(false);
+  const [threeDActiveState, setThreeDActiveState] = React.useState<ThreeDActiveState>(ThreeDActiveState.NONE);
 
   function openImageUploader(): void {
     setDisplayImageUploadState(true);
@@ -68,6 +83,18 @@ export const ContextMenu: React.FunctionComponent<{}> = (): JSX.Element => {
     );
   }
 
+  function processThreeDUpload(state: ThreeDActiveState): void {
+    if (threeDActiveState === ThreeDActiveState.NONE) {
+      setThreeDActiveState(state);
+      props.displayThreeDEditPanel();
+    } else {
+      console.log("pog");
+      setThreeDActiveState(ThreeDActiveState.NONE);
+      setDisplayThreeDUploadState(false);
+      props.hideThreeDEditPanel();
+    }
+  }
+
   function renderImageButtons(): React.ReactNode {
     if (imageUploadState) return (
       <MediaUploadButtons
@@ -84,7 +111,20 @@ export const ContextMenu: React.FunctionComponent<{}> = (): JSX.Element => {
   }
 
   function renderThreeDButtons(): React.ReactNode {
-    return <></>;
+    if (displayThreeDUploadState) return (
+      <ThreeDUpload
+        onOBJ={() => processThreeDUpload(ThreeDActiveState.OBJ)}
+        onMTL={() => processThreeDUpload(ThreeDActiveState.MTL)}
+        onGLTF={() => processThreeDUpload(ThreeDActiveState.GLTF)}
+        activeState={threeDActiveState}
+      />
+    );
+
+    return (
+      <Button size="large" type="primary" onClick={() => setDisplayThreeDUploadState(true)}>
+        Upload 3D Model
+      </Button>
+    );
   }
 
   return (
@@ -94,9 +134,7 @@ export const ContextMenu: React.FunctionComponent<{}> = (): JSX.Element => {
       </header>
       <section className="primary-button-group">
         {renderImageButtons()}
-        <Button size="large" type="primary">
-          Upload 3D Model
-        </Button>
+        {renderThreeDButtons()}
       </section>
       <IconInput
         icon={<SearchIcon />}
