@@ -4,7 +4,7 @@ import "../scss/button.scss";
 export interface ButtonProps {
   children: React.ReactNode;
   type: "primary" | "secondary" | "alternate" | "normal" | "outlined";
-  size?: "normal" | "large";
+  size?: "normal" | "large" | "small";
   onClick?: () => any;
   className?: string;
   disabled?: boolean;

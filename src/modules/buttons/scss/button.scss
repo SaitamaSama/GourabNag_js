@@ -27,6 +27,11 @@
   &.s-large {
     padding: 12px 22px;
   }
+  &.s-small {
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 500;
+  }
 
   &.disabled {
     background: #2E384D;
